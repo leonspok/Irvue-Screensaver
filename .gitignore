@@ -1,0 +1,8 @@
+**.DS_Store
+**/DerivedData/*
+**/xcuserdata/*
+**.dmg
+**.app
+**Podfile.lock
+**/Pods/*
+**/Unsplash Credentials.plist

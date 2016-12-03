@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="Irvue_ScreensaverView">
+            <connections>
+                <outlet property="collectionRadioButton" destination="cKN-cY-RnM" id="GeS-Am-GRm"/>
+                <outlet property="collectionURLTextField" destination="qMn-OT-g17" id="5Fx-KZ-7Lf"/>
+                <outlet property="configSheet" destination="EgY-fx-idO" id="UZL-JN-GEc"/>
+                <outlet property="featuredRadioButton" destination="J8Q-wb-MjH" id="aQu-Rd-BMo"/>
+                <outlet property="searchQueryTextField" destination="IN6-X9-8sd" id="uXZ-6b-0gX"/>
+                <outlet property="searchRadioButton" destination="FPB-zW-BJS" id="rpy-J1-EPZ"/>
+                <outlet property="updateIntervalLabel" destination="zro-TN-egd" id="cGp-9U-yQc"/>
+                <outlet property="updateIntervalSlider" destination="45b-G2-f7o" id="uxl-Zk-1fc"/>
+                <outlet property="userRadioButton" destination="t6e-Jv-FgV" id="bO7-ZU-f7T"/>
+                <outlet property="usernameTextField" destination="TJp-2h-7I2" id="XgQ-2z-91h"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="EgY-fx-idO" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="116" width="509" height="378"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <view key="contentView" id="uH8-h8-Dbe">
+                <rect key="frame" x="0.0" y="0.0" width="509" height="378"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <box title="Photos from:" translatesAutoresizingMaskIntoConstraints="NO" id="2Ei-w5-x9N">
+                        <rect key="frame" x="17" y="198" width="475" height="160"/>
+                        <view key="contentView" id="MrU-4c-22q">
+                            <rect key="frame" x="2" y="2" width="471" height="143"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <button translatesAutoresizingMaskIntoConstraints="NO" id="J8Q-wb-MjH">
+                                    <rect key="frame" x="19" y="106" width="76" height="18"/>
+                                    <buttonCell key="cell" type="radio" title="Featured" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="Q90-6D-Aup">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="selectedSource:" target="-2" id="ro6-u3-l0X"/>
+                                    </connections>
+                                </button>
+                                <button translatesAutoresizingMaskIntoConstraints="NO" id="cKN-cY-RnM">
+                                    <rect key="frame" x="19" y="78" width="87" height="18"/>
+                                    <buttonCell key="cell" type="radio" title="Collection:" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Wqd-lH-16v">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="selectedSource:" target="-2" id="Vsd-3m-VKB"/>
+                                    </connections>
+                                </button>
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qMn-OT-g17">
+                                    <rect key="frame" x="131" y="76" width="320" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="320" id="Ytj-F5-p00"/>
+                                    </constraints>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="https://unsplash.com/collections/323917/mountains" bezelStyle="round" id="GXn-Qj-80k">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button translatesAutoresizingMaskIntoConstraints="NO" id="t6e-Jv-FgV">
+                                    <rect key="frame" x="19" y="50" width="55" height="18"/>
+                                    <buttonCell key="cell" type="radio" title="User:" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="TwT-MR-3DE">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="selectedSource:" target="-2" id="IhV-Qy-7lh"/>
+                                    </connections>
+                                </button>
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TJp-2h-7I2">
+                                    <rect key="frame" x="131" y="48" width="320" height="22"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="For example: timmossholder" bezelStyle="round" id="Arr-vX-Uff">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button translatesAutoresizingMaskIntoConstraints="NO" id="FPB-zW-BJS">
+                                    <rect key="frame" x="19" y="22" width="68" height="18"/>
+                                    <buttonCell key="cell" type="radio" title="Search:" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="aLX-M3-cMO">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="selectedSource:" target="-2" id="D1I-tU-tw8"/>
+                                    </connections>
+                                </button>
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IN6-X9-8sd">
+                                    <rect key="frame" x="131" y="20" width="320" height="22"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="For example: nature, Christmas, etc." bezelStyle="round" id="gUf-jU-sBm">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="FPB-zW-BJS" firstAttribute="top" secondItem="t6e-Jv-FgV" secondAttribute="bottom" constant="12" id="6Fc-6X-LmU"/>
+                                <constraint firstItem="t6e-Jv-FgV" firstAttribute="leading" secondItem="cKN-cY-RnM" secondAttribute="leading" id="77H-tw-XyZ"/>
+                                <constraint firstItem="cKN-cY-RnM" firstAttribute="top" secondItem="J8Q-wb-MjH" secondAttribute="bottom" constant="12" id="8tm-Wl-75X"/>
+                                <constraint firstItem="IN6-X9-8sd" firstAttribute="width" secondItem="TJp-2h-7I2" secondAttribute="width" id="HOh-3t-Krm"/>
+                                <constraint firstItem="J8Q-wb-MjH" firstAttribute="leading" secondItem="MrU-4c-22q" secondAttribute="leading" constant="20" id="LRt-de-LlX"/>
+                                <constraint firstItem="IN6-X9-8sd" firstAttribute="centerY" secondItem="FPB-zW-BJS" secondAttribute="centerY" id="NIp-Gq-MYI"/>
+                                <constraint firstItem="cKN-cY-RnM" firstAttribute="leading" secondItem="J8Q-wb-MjH" secondAttribute="leading" id="Nbw-De-HtD"/>
+                                <constraint firstAttribute="trailing" secondItem="IN6-X9-8sd" secondAttribute="trailing" constant="20" id="T4y-cK-I7Y"/>
+                                <constraint firstAttribute="trailing" secondItem="qMn-OT-g17" secondAttribute="trailing" constant="20" id="UMD-CN-u7Y"/>
+                                <constraint firstItem="t6e-Jv-FgV" firstAttribute="top" secondItem="cKN-cY-RnM" secondAttribute="bottom" constant="12" id="Uzn-Hv-jhh"/>
+                                <constraint firstItem="TJp-2h-7I2" firstAttribute="centerY" secondItem="t6e-Jv-FgV" secondAttribute="centerY" id="Zb9-A0-DTt"/>
+                                <constraint firstItem="TJp-2h-7I2" firstAttribute="width" secondItem="qMn-OT-g17" secondAttribute="width" id="fPC-Gk-MEG"/>
+                                <constraint firstAttribute="trailing" secondItem="TJp-2h-7I2" secondAttribute="trailing" constant="20" id="lEV-VM-2CV"/>
+                                <constraint firstItem="qMn-OT-g17" firstAttribute="centerY" secondItem="cKN-cY-RnM" secondAttribute="centerY" id="lyX-MR-69s"/>
+                                <constraint firstItem="J8Q-wb-MjH" firstAttribute="top" secondItem="MrU-4c-22q" secondAttribute="top" constant="20" id="nBW-Zj-PSr"/>
+                                <constraint firstItem="FPB-zW-BJS" firstAttribute="leading" secondItem="t6e-Jv-FgV" secondAttribute="leading" id="pzZ-n7-Ymi"/>
+                            </constraints>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="156" id="lt5-9h-3lo"/>
+                        </constraints>
+                    </box>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9KY-Pr-T1p">
+                        <rect key="frame" x="161" y="56" width="188" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="All photos from unsplash.com" id="rJa-Jt-8sh">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box title="Update interval" translatesAutoresizingMaskIntoConstraints="NO" id="z81-S8-ypa">
+                        <rect key="frame" x="17" y="77" width="475" height="105"/>
+                        <view key="contentView" id="S3G-Ub-fYm">
+                            <rect key="frame" x="2" y="2" width="471" height="88"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="45b-G2-f7o">
+                                    <rect key="frame" x="18" y="46" width="435" height="24"/>
+                                    <sliderCell key="cell" state="on" alignment="left" minValue="1" maxValue="120" doubleValue="5" tickMarkPosition="below" numberOfTickMarks="10" sliderType="linear" id="Jre-rs-Aik"/>
+                                    <connections>
+                                        <action selector="updateIntervalChanged:" target="-2" id="mD8-Vu-XMd"/>
+                                    </connections>
+                                </slider>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zro-TN-egd">
+                                    <rect key="frame" x="18" y="20" width="230" height="17"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Photos will update every %@ minutes" id="rvr-Ce-A27">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="45b-G2-f7o" firstAttribute="top" secondItem="S3G-Ub-fYm" secondAttribute="top" constant="20" id="8hf-Dr-k4n"/>
+                                <constraint firstItem="zro-TN-egd" firstAttribute="top" secondItem="45b-G2-f7o" secondAttribute="bottom" constant="10" id="FrD-0I-VA5"/>
+                                <constraint firstItem="zro-TN-egd" firstAttribute="leading" secondItem="45b-G2-f7o" secondAttribute="leading" id="Nm2-qH-h6G"/>
+                                <constraint firstItem="45b-G2-f7o" firstAttribute="leading" secondItem="S3G-Ub-fYm" secondAttribute="leading" constant="20" id="dDy-iF-KP3"/>
+                                <constraint firstAttribute="trailing" secondItem="45b-G2-f7o" secondAttribute="trailing" constant="20" id="pV5-D0-b71"/>
+                            </constraints>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="101" id="9tr-s8-JI0"/>
+                        </constraints>
+                    </box>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Iwd-uo-FjJ">
+                        <rect key="frame" x="420" y="13" width="75" height="32"/>
+                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3er-yM-pKn">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="close:" target="-2" id="6a6-uD-qfq"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="z81-S8-ypa" secondAttribute="trailing" constant="20" id="5MC-nK-wuL"/>
+                    <constraint firstAttribute="bottom" secondItem="Iwd-uo-FjJ" secondAttribute="bottom" constant="20" id="8Rd-Cv-WXy"/>
+                    <constraint firstAttribute="trailing" secondItem="Iwd-uo-FjJ" secondAttribute="trailing" constant="20" id="BLR-Vl-Ch8"/>
+                    <constraint firstItem="2Ei-w5-x9N" firstAttribute="top" secondItem="uH8-h8-Dbe" secondAttribute="top" constant="20" id="Bf1-co-7fo"/>
+                    <constraint firstItem="Iwd-uo-FjJ" firstAttribute="top" secondItem="9KY-Pr-T1p" secondAttribute="bottom" constant="15" id="Sfm-2G-kRR"/>
+                    <constraint firstAttribute="trailing" secondItem="2Ei-w5-x9N" secondAttribute="trailing" constant="20" id="VJa-s4-00M"/>
+                    <constraint firstItem="9KY-Pr-T1p" firstAttribute="centerX" secondItem="uH8-h8-Dbe" secondAttribute="centerX" id="b7s-F2-jNT"/>
+                    <constraint firstItem="z81-S8-ypa" firstAttribute="leading" secondItem="uH8-h8-Dbe" secondAttribute="leading" constant="20" id="iDV-La-zOo"/>
+                    <constraint firstItem="2Ei-w5-x9N" firstAttribute="leading" secondItem="uH8-h8-Dbe" secondAttribute="leading" constant="20" id="xCk-cI-4d1"/>
+                    <constraint firstItem="z81-S8-ypa" firstAttribute="top" secondItem="2Ei-w5-x9N" secondAttribute="bottom" constant="20" id="xzc-3M-wOn"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="99" y="-20"/>
+        </window>
+    </objects>
+</document>
