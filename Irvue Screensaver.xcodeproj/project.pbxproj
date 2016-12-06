@@ -581,6 +581,7 @@
 				DEVELOPMENT_TEAM = 6KXZX3AW22;
 				INFOPLIST_FILE = "Irvue Screensaver/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.leonspok.osx.Irvue-Screensaver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = saver;
@@ -595,6 +596,7 @@
 				DEVELOPMENT_TEAM = 6KXZX3AW22;
 				INFOPLIST_FILE = "Irvue Screensaver/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.leonspok.osx.Irvue-Screensaver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = saver;
