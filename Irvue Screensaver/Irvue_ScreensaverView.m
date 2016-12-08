@@ -297,10 +297,10 @@ static NSString *const kSearchQueryKey = @"search_query";
 				SwitchDirection direction;
 				do {
 					direction = arc4random()%4;
-				} while(direction == previousDirection &&
-						(direction == SwitchDirectionLeft && previousDirection == SwitchDirectionRight) &&
-						(direction == SwitchDirectionRight && previousDirection == SwitchDirectionLeft) &&
-						(direction == SwitchDirectionTop && previousDirection == SwitchDirectionBottom) &&
+				} while(direction == previousDirection ||
+						(direction == SwitchDirectionLeft && previousDirection == SwitchDirectionRight) ||
+						(direction == SwitchDirectionRight && previousDirection == SwitchDirectionLeft) ||
+						(direction == SwitchDirectionTop && previousDirection == SwitchDirectionBottom) ||
 						(direction == SwitchDirectionBottom && previousDirection == SwitchDirectionTop));
 				previousDirection = direction;
 				
