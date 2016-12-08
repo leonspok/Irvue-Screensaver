@@ -5,4 +5,4 @@
 **.app
 **Podfile.lock
 **/Pods/*
-**/Unsplash Credentials.plist
+**/UnsplashCredentials.h

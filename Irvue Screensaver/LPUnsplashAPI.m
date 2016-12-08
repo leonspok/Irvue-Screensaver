@@ -13,11 +13,11 @@
 #import "IVUser.h"
 #import "NSDictionary+NSURL.h"
 #import "TTHTTPRequestSerializer.h"
+#import "UnsplashCredentials.h"
 
 static NSString *const kUnsplashAPIBaseURL = @"https://api.unsplash.com";
 
 @interface LPUnsplashAPI()
-@property (nonatomic, strong, readonly) NSString *unsplashAppID;
 @end
 
 @implementation LPUnsplashAPI {
@@ -41,14 +41,9 @@ static NSString *const kUnsplashAPIBaseURL = @"https://api.unsplash.com";
     return self;
 }
 
-- (NSString *)unsplashAppID {
-	NSDictionary *info = [NSDictionary dictionaryWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"Unsplash Credentials" withExtension:@"plist"]];
-	return [info objectForKey:@"AppID"];
-}
-
 - (NSMutableURLRequest *)createRequestWithURL:(NSURL *)url method:(NSString *)method params:(NSDictionary *)params {
 	NSMutableURLRequest *request = [TTHTTPRequestSerializer requestWithMethod:method url:url params:params];
-	[request setValue:[NSString stringWithFormat:@"Client-ID %@", self.unsplashAppID] forHTTPHeaderField:@"Authorization"];
+	[request setValue:[NSString stringWithFormat:@"Client-ID %@", UNSPLASH_APP_ID] forHTTPHeaderField:@"Authorization"];
 	[request setValue:@"v1" forHTTPHeaderField:@"Accept-Version"];
 	return request;
 }

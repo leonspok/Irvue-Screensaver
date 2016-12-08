@@ -72,8 +72,6 @@
 		E379652D1DEF0AD900C27AC7 /* NSScreen+MaxScaleFactor.m in Sources */ = {isa = PBXBuildFile; fileRef = E379652A1DEF0AD900C27AC7 /* NSScreen+MaxScaleFactor.m */; };
 		E3B4C0401DF04A2E00747C26 /* ConfigureSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B4C03F1DF04A2E00747C26 /* ConfigureSheet.xib */; };
 		E3B4C0411DF04A2E00747C26 /* ConfigureSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B4C03F1DF04A2E00747C26 /* ConfigureSheet.xib */; };
-		E3F60FD71DF2BF7A009A0CF9 /* Unsplash Credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3F60FD61DF2BF7A009A0CF9 /* Unsplash Credentials.plist */; };
-		E3F60FD81DF2BF7A009A0CF9 /* Unsplash Credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3F60FD61DF2BF7A009A0CF9 /* Unsplash Credentials.plist */; };
 		E3FBA54B1DEEE9CD00CF2932 /* Irvue_ScreensaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = E3FBA54A1DEEE9CD00CF2932 /* Irvue_ScreensaverView.h */; };
 		E3FBA54D1DEEE9CD00CF2932 /* Irvue_ScreensaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBA54C1DEEE9CD00CF2932 /* Irvue_ScreensaverView.m */; };
 /* End PBXBuildFile section */
@@ -126,7 +124,7 @@
 		E37965291DEF0AD900C27AC7 /* NSScreen+MaxScaleFactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScreen+MaxScaleFactor.h"; sourceTree = "<group>"; };
 		E379652A1DEF0AD900C27AC7 /* NSScreen+MaxScaleFactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScreen+MaxScaleFactor.m"; sourceTree = "<group>"; };
 		E3B4C03F1DF04A2E00747C26 /* ConfigureSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigureSheet.xib; sourceTree = "<group>"; };
-		E3F60FD61DF2BF7A009A0CF9 /* Unsplash Credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Unsplash Credentials.plist"; sourceTree = "<group>"; };
+		E3F6104B1DF97313009A0CF9 /* UnsplashCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnsplashCredentials.h; sourceTree = "<group>"; };
 		E3FBA5471DEEE9CD00CF2932 /* Irvue Screensaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Irvue Screensaver.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FBA54A1DEEE9CD00CF2932 /* Irvue_ScreensaverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Irvue_ScreensaverView.h; sourceTree = "<group>"; };
 		E3FBA54C1DEEE9CD00CF2932 /* Irvue_ScreensaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Irvue_ScreensaverView.m; sourceTree = "<group>"; };
@@ -242,6 +240,7 @@
 			children = (
 				E37964B01DEEEC9E00C27AC7 /* Data */,
 				E37964EF1DEEED3F00C27AC7 /* Commons */,
+				E3F6104B1DF97313009A0CF9 /* UnsplashCredentials.h */,
 				E379651E1DEF098900C27AC7 /* LPUnsplashPhotoView.h */,
 				E379651F1DEF098900C27AC7 /* LPUnsplashPhotoView.m */,
 				E37964B11DEEECAE00C27AC7 /* LPUnsplashAPI.h */,
@@ -252,7 +251,6 @@
 				E3FBA54C1DEEE9CD00CF2932 /* Irvue_ScreensaverView.m */,
 				E3FBA54E1DEEE9CD00CF2932 /* Info.plist */,
 				E3B4C03F1DF04A2E00747C26 /* ConfigureSheet.xib */,
-				E3F60FD61DF2BF7A009A0CF9 /* Unsplash Credentials.plist */,
 			);
 			path = "Irvue Screensaver";
 			sourceTree = "<group>";
@@ -373,7 +371,6 @@
 			files = (
 				E37965011DEEFDC400C27AC7 /* Assets.xcassets in Resources */,
 				E37965041DEEFDC400C27AC7 /* MainMenu.xib in Resources */,
-				E3F60FD81DF2BF7A009A0CF9 /* Unsplash Credentials.plist in Resources */,
 				E3B4C0411DF04A2E00747C26 /* ConfigureSheet.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,7 +379,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3F60FD71DF2BF7A009A0CF9 /* Unsplash Credentials.plist in Resources */,
 				E3B4C0401DF04A2E00747C26 /* ConfigureSheet.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
