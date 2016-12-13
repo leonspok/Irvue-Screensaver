@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,7 +26,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="116" width="509" height="378"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="uH8-h8-Dbe">
                 <rect key="frame" x="0.0" y="0.0" width="509" height="378"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -145,7 +144,7 @@
                             <subviews>
                                 <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="45b-G2-f7o">
                                     <rect key="frame" x="18" y="46" width="435" height="24"/>
-                                    <sliderCell key="cell" state="on" alignment="left" minValue="1" maxValue="120" doubleValue="5" tickMarkPosition="below" numberOfTickMarks="10" sliderType="linear" id="Jre-rs-Aik"/>
+                                    <sliderCell key="cell" state="on" alignment="left" minValue="15" maxValue="300" doubleValue="60" tickMarkPosition="below" numberOfTickMarks="20" allowsTickMarkValuesOnly="YES" sliderType="linear" id="Jre-rs-Aik"/>
                                     <connections>
                                         <action selector="updateIntervalChanged:" target="-2" id="mD8-Vu-XMd"/>
                                     </connections>

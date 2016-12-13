@@ -20,10 +20,10 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	self.screenSaver = [[Irvue_ScreensaverView alloc] initWithFrame:self.window.contentView.bounds isPreview:YES];
 	[self.screenSaver setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
-	[self.screenSaver setSource:PhotosSourceSearch];
-	[self.screenSaver.defaults setObject:@"city" forKey:@"search_query"];
-	[self.screenSaver.defaults synchronize];
-	[self.screenSaver setUpdateInterval:5.0f];
+//	[self.screenSaver setSource:PhotosSourceSearch];
+//	[self.screenSaver.defaults setObject:@"city" forKey:@"search_query"];
+//	[self.screenSaver.defaults synchronize];
+//	[self.screenSaver setUpdateInterval:5.0f];
 	[self.window.contentView addSubview:self.screenSaver];
 }
 

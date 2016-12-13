@@ -88,7 +88,7 @@ static NSString *const kSearchQueryKey = @"search_query";
 - (NSTimeInterval)updateInterval {
 	NSNumber *number = [self.defaults objectForKey:kUpdateIntervalKey];
 	if (!number) {
-		[self setUpdateInterval:600.0f];
+		[self setUpdateInterval:60.0f];
 		return [self updateInterval];
 	}
 	return [number doubleValue];
@@ -524,9 +524,10 @@ static NSString *const kSearchQueryKey = @"search_query";
 }
 
 - (IBAction)updateIntervalChanged:(id)sender {
-	self.updateInterval = self.updateIntervalSlider.doubleValue*60.0;
-	long minutes = (long)round(self.updateInterval/60);
-	NSString *timeStr = (minutes == 1)? @"minute" : [NSString stringWithFormat:@"%ld minutes", minutes];
+	self.updateInterval = self.updateIntervalSlider.doubleValue;
+	NSInteger minutes = ((NSInteger)round(self.updateInterval))/60;
+	NSInteger seconds = ((NSInteger)self.updateInterval)%60;
+	NSString *timeStr = [NSString stringWithFormat:@"%02ld:%02ld", (long)minutes, (long)seconds];
 	self.updateIntervalLabel.stringValue = [NSString stringWithFormat:@"Photos will update every %@", timeStr];
 }
 
@@ -561,7 +562,7 @@ static NSString *const kSearchQueryKey = @"search_query";
 		}
 	}
 	[self.defaults synchronize];
-	self.updateInterval = self.updateIntervalSlider.doubleValue*60.0;
+	self.updateInterval = self.updateIntervalSlider.doubleValue;
 }
 
 @end

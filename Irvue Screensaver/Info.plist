@@ -15,9 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.2</string>
+	<string>1.0.3</string>
 	<key>CFBundleVersion</key>
-	<string>1020</string>
+	<string>1030</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2016 Leonspok. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
