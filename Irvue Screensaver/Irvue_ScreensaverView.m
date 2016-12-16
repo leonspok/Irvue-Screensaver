@@ -61,7 +61,7 @@ static NSString *const kSearchQueryKey = @"search_query";
     self = [super initWithFrame:frame isPreview:isPreview];
     if (self) {
 		[[LPImageDownloadManager defaultManager] clearOldCache];
-		self.defaults = [ScreenSaverDefaults defaultsForModuleWithName:[[NSBundle mainBundle] bundleIdentifier]];
+		self.defaults = [ScreenSaverDefaults defaultsForModuleWithName:@"com.leonspok.osx.Irvue-Screensaver.defaults"];
 		
 		self.containerView = [[NSView alloc] initWithFrame:[self bounds]];
 		[self.containerView setWantsLayer:YES];
