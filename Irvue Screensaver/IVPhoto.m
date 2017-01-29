@@ -14,6 +14,10 @@
 #import "NSDictionary+NSURL.h"
 #import "LPUnsplashAPI.h"
 
+@interface IVPhoto()
+@property (nonatomic, readwrite) BOOL placeholder;
+@end
+
 @implementation IVPhoto
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -141,6 +145,19 @@
     [params setObject:@"max" forKey:@"fit"];
     NSURL *url = [params urlWithBase:[urlString substringWithRange:NSMakeRange(0, [urlString rangeOfString:@"?"].location != NSNotFound? [urlString rangeOfString:@"?"].location : urlString.length)]];
     return url;
+}
+
+#pragma mark Placeholder
+
++ (instancetype)placeholderPhoto {
+	IVPhoto *photo = [IVPhoto new];
+	photo.uid = @"YadCgbsLHcE";
+	photo.placeholder = YES;
+	IVUser *user = [IVUser new];
+	user.username = @"willpower";
+	user.name = @"William Stitt";
+	photo.author = user;
+	return photo;
 }
 
 @end

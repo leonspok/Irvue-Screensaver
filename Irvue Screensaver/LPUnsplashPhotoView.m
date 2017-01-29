@@ -118,20 +118,10 @@
 		}
 	};
 	
-	NSURL *imageURL = [self.photo imageURLForSize:[NSScreen maxScreenResolution]];
-	if ([[LPImageDownloadManager defaultManager] hasImageForURL:[imageURL absoluteString]]) {
-		photoImage = [[LPImageDownloadManager defaultManager] getImageForURL:[imageURL absoluteString]];
-		if (photoImage) {
-			[self.photoImageView setImage:photoImage];
-			[self setNeedsLayout:YES];
-			imageLoaded = 1;
-		} else {
-			imageLoaded = -1;
-		}
-		completionBlock();
-	} else {
-		[[LPImageDownloadManager defaultManager] getImageForURL:[imageURL absoluteString] completion:^(NSImage *image) {
-			photoImage = image;
+	if (![self.photo isPlaceholder]) {
+		NSURL *imageURL = [self.photo imageURLForSize:[NSScreen maxScreenResolution]];
+		if ([[LPImageDownloadManager defaultManager] hasImageForURL:[imageURL absoluteString]]) {
+			photoImage = [[LPImageDownloadManager defaultManager] getImageForURL:[imageURL absoluteString]];
 			if (photoImage) {
 				[self.photoImageView setImage:photoImage];
 				[self setNeedsLayout:YES];
@@ -140,7 +130,29 @@
 				imageLoaded = -1;
 			}
 			completionBlock();
-		}];
+		} else {
+			[[LPImageDownloadManager defaultManager] getImageForURL:[imageURL absoluteString] completion:^(NSImage *image) {
+				photoImage = image;
+				if (photoImage) {
+					[self.photoImageView setImage:photoImage];
+					[self setNeedsLayout:YES];
+					imageLoaded = 1;
+				} else {
+					imageLoaded = -1;
+				}
+				completionBlock();
+			}];
+		}
+	} else {
+		photoImage = [NSImage imageNamed:@"placeholder"];
+		if (photoImage) {
+			[self.photoImageView setImage:photoImage];
+			[self setNeedsLayout:YES];
+			imageLoaded = 1;
+		} else {
+			imageLoaded = -1;
+		}
+		completionBlock();
 	}
 	
 	NSURL *authorImageURL = self.photo.author.largeProfileImage;
@@ -151,20 +163,28 @@
 		authorImageURL = self.photo.author.smallProfileImage;
 	}
 	
-	if ([[LPImageDownloadManager defaultManager] hasImageForURL:[authorImageURL absoluteString] size:TTImageSize300px rounded:YES]) {
-		[self.avatarImageView setImage:[[LPImageDownloadManager defaultManager] getImageForURL:[authorImageURL absoluteString] size:TTImageSize300px rounded:YES]];
+	if (authorImageURL) {
+		if ([[LPImageDownloadManager defaultManager] hasImageForURL:[authorImageURL absoluteString] size:TTImageSize300px rounded:YES]) {
+			[self.avatarImageView setImage:[[LPImageDownloadManager defaultManager] getImageForURL:[authorImageURL absoluteString] size:TTImageSize300px rounded:YES]];
+			avatarLoaded = 1;
+			completionBlock();
+		} else {
+			[[LPImageDownloadManager defaultManager] getImageForURL:[authorImageURL absoluteString] size:TTImageSize300px rounded:YES completion:^(NSImage *image) {
+				if (image) {
+					[self.avatarImageView setImage:image];
+					avatarLoaded = 1;
+				} else {
+					avatarLoaded = -1;
+				}
+				completionBlock();
+			}];
+		}
+	} else {
+		if ([self.photo isPlaceholder]) {
+			[self.avatarImageView setImage:[[NSImage imageNamed:@"placeholderProfileImage"] resizeWithAspectFillToSize:NSMakeSize(300, 300) rounded:YES]];
+		}
 		avatarLoaded = 1;
 		completionBlock();
-	} else {
-		[[LPImageDownloadManager defaultManager] getImageForURL:[authorImageURL absoluteString] size:TTImageSize300px rounded:YES completion:^(NSImage *image) {
-			if (image) {
-				[self.avatarImageView setImage:image];
-				avatarLoaded = 1;
-			} else {
-				avatarLoaded = -1;
-			}
-			completionBlock();
-		}];
 	}
 }
 

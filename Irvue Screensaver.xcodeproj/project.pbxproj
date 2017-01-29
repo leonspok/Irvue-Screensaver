@@ -72,6 +72,12 @@
 		E379652D1DEF0AD900C27AC7 /* NSScreen+MaxScaleFactor.m in Sources */ = {isa = PBXBuildFile; fileRef = E379652A1DEF0AD900C27AC7 /* NSScreen+MaxScaleFactor.m */; };
 		E3B4C0401DF04A2E00747C26 /* ConfigureSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B4C03F1DF04A2E00747C26 /* ConfigureSheet.xib */; };
 		E3B4C0411DF04A2E00747C26 /* ConfigureSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B4C03F1DF04A2E00747C26 /* ConfigureSheet.xib */; };
+		E3E940221E3E495A00094B83 /* TTOfflineChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = E3E940201E3E495A00094B83 /* TTOfflineChecker.h */; };
+		E3E940231E3E495A00094B83 /* TTOfflineChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E940211E3E495A00094B83 /* TTOfflineChecker.m */; };
+		E3E940241E3E495A00094B83 /* TTOfflineChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E940211E3E495A00094B83 /* TTOfflineChecker.m */; };
+		E3E940271E3E49BA00094B83 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = E3E940251E3E49BA00094B83 /* Reachability.h */; };
+		E3E940281E3E49BA00094B83 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E940261E3E49BA00094B83 /* Reachability.m */; };
+		E3E940291E3E49BA00094B83 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E940261E3E49BA00094B83 /* Reachability.m */; };
 		E3FBA54B1DEEE9CD00CF2932 /* Irvue_ScreensaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = E3FBA54A1DEEE9CD00CF2932 /* Irvue_ScreensaverView.h */; };
 		E3FBA54D1DEEE9CD00CF2932 /* Irvue_ScreensaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBA54C1DEEE9CD00CF2932 /* Irvue_ScreensaverView.m */; };
 /* End PBXBuildFile section */
@@ -124,6 +130,10 @@
 		E37965291DEF0AD900C27AC7 /* NSScreen+MaxScaleFactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScreen+MaxScaleFactor.h"; sourceTree = "<group>"; };
 		E379652A1DEF0AD900C27AC7 /* NSScreen+MaxScaleFactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScreen+MaxScaleFactor.m"; sourceTree = "<group>"; };
 		E3B4C03F1DF04A2E00747C26 /* ConfigureSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigureSheet.xib; sourceTree = "<group>"; };
+		E3E940201E3E495A00094B83 /* TTOfflineChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTOfflineChecker.h; sourceTree = "<group>"; };
+		E3E940211E3E495A00094B83 /* TTOfflineChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTOfflineChecker.m; sourceTree = "<group>"; };
+		E3E940251E3E49BA00094B83 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		E3E940261E3E49BA00094B83 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E3F6104B1DF97313009A0CF9 /* UnsplashCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnsplashCredentials.h; sourceTree = "<group>"; };
 		E3FBA5471DEEE9CD00CF2932 /* Irvue Screensaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Irvue Screensaver.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FBA54A1DEEE9CD00CF2932 /* Irvue_ScreensaverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Irvue_ScreensaverView.h; sourceTree = "<group>"; };
@@ -169,6 +179,10 @@
 		E37964EF1DEEED3F00C27AC7 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				E3E940251E3E49BA00094B83 /* Reachability.h */,
+				E3E940261E3E49BA00094B83 /* Reachability.m */,
+				E3E940201E3E495A00094B83 /* TTOfflineChecker.h */,
+				E3E940211E3E495A00094B83 /* TTOfflineChecker.m */,
 				E37964BB1DEEED3A00C27AC7 /* NSDictionary+NSURL.h */,
 				E37964BC1DEEED3A00C27AC7 /* NSDictionary+NSURL.m */,
 				E37964BD1DEEED3A00C27AC7 /* NSString+MD5.h */,
@@ -278,7 +292,9 @@
 				E37964E91DEEED3A00C27AC7 /* NSImage+Effects.h in Headers */,
 				E37964E51DEEED3A00C27AC7 /* LPImageDownloadManager.h in Headers */,
 				E37964A41DEEEC9600C27AC7 /* IVPhoto.h in Headers */,
+				E3E940221E3E495A00094B83 /* TTOfflineChecker.h in Headers */,
 				E37964DE1DEEED3A00C27AC7 /* NSImage+Luminance.h in Headers */,
+				E3E940271E3E49BA00094B83 /* Reachability.h in Headers */,
 				E37964A61DEEEC9600C27AC7 /* IVPhotoLocation.h in Headers */,
 				E37964ED1DEEED3A00C27AC7 /* NSCharacterSet+QueryParams.h in Headers */,
 				E3FBA54B1DEEE9CD00CF2932 /* Irvue_ScreensaverView.h in Headers */,
@@ -400,8 +416,10 @@
 				E37965221DEF098900C27AC7 /* LPUnsplashPhotoView.m in Sources */,
 				E37965101DEEFE1000C27AC7 /* NSString+MD5.m in Sources */,
 				E37965111DEEFE1000C27AC7 /* NSArray+Utilities.m in Sources */,
+				E3E940291E3E49BA00094B83 /* Reachability.m in Sources */,
 				E37965121DEEFE1000C27AC7 /* NSSet+Utilities.m in Sources */,
 				E37965131DEEFE1000C27AC7 /* NSImage+Luminance.m in Sources */,
+				E3E940241E3E495A00094B83 /* TTOfflineChecker.m in Sources */,
 				E37965151DEEFE1000C27AC7 /* LPImageDownloadManager.m in Sources */,
 				E37965161DEEFE1000C27AC7 /* NSBezierPath+CGPath.m in Sources */,
 				E37965171DEEFE1000C27AC7 /* NSImage+Effects.m in Sources */,
@@ -431,7 +449,9 @@
 				E37964E61DEEED3A00C27AC7 /* LPImageDownloadManager.m in Sources */,
 				E37964D91DEEED3A00C27AC7 /* NSString+MD5.m in Sources */,
 				E37964A51DEEEC9600C27AC7 /* IVPhoto.m in Sources */,
+				E3E940231E3E495A00094B83 /* TTOfflineChecker.m in Sources */,
 				E37965211DEF098900C27AC7 /* LPUnsplashPhotoView.m in Sources */,
+				E3E940281E3E49BA00094B83 /* Reachability.m in Sources */,
 				E37964AF1DEEEC9600C27AC7 /* IVCollection.m in Sources */,
 				E37964DF1DEEED3A00C27AC7 /* NSImage+Luminance.m in Sources */,
 				E37964B41DEEECAE00C27AC7 /* LPUnsplashAPI.m in Sources */,

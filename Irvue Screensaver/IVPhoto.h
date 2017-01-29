@@ -31,4 +31,8 @@
 
 - (NSURL *)imageURLForSize:(NSSize)size;
 
+
+@property (nonatomic, readonly, getter=isPlaceholder) BOOL placeholder;
++ (instancetype)placeholderPhoto;
+
 @end

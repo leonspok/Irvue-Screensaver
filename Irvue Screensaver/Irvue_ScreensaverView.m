@@ -13,6 +13,7 @@
 #import "LPUnsplashPhotoView.h"
 #import "NSArray+Utilities.h"
 #import "NSString+MD5.h"
+#import "TTOfflineChecker.h"
 
 typedef enum {
 	SwitchDirectionLeft		= 0,
@@ -68,7 +69,14 @@ static NSString *const kSearchQueryKey = @"search_query";
 		[self.containerView.layer setBackgroundColor:[NSColor blackColor].CGColor];
 		[self addSubview:self.containerView];
 		
-		[self changeImage];
+		if ([self cachedPhotosFromSource:self.source].count == 0) {
+			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+				[self replaceCurrentPhotoViewWith:[[LPUnsplashPhotoView alloc] initWithPhoto:[IVPhoto placeholderPhoto]] animated:YES];
+				[self changeImage];
+			});
+		} else {
+			[self changeImage];
+		}
 		
         [self setAnimationTimeInterval:1/30.0];
     }
@@ -255,6 +263,13 @@ static NSString *const kSearchQueryKey = @"search_query";
 #pragma mark Animations
 
 - (void)changeImage {
+	if ([[TTOfflineChecker defaultChecker] isOffline]) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			changeImageTimer = [NSTimer scheduledTimerWithTimeInterval:self.updateInterval target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
+		});
+		return;
+	}
+	
 	[changeImageTimer invalidate];
 	changeImageTimer = nil;
 	[self getNextImageSuccess:^(IVPhoto *photo) {
