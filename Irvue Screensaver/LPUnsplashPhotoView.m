@@ -40,18 +40,18 @@
 		[self.avatarImageView setImageFrameStyle:NSImageFrameNone];
 		[self addSubview:self.avatarImageView];
 		
-		self.authorNameLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(105, 50, [self bounds].size.width-110, 30)];
+		self.authorNameLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(105, 48, [self bounds].size.width-110, 30)];
 		[self.authorNameLabel setEditable:NO];
 		[self.authorNameLabel setBordered:NO];
-		[self.authorNameLabel setFont:[NSFont fontWithName:@"Courier" size:24.0f]];
+		[self.authorNameLabel setFont:[NSFont systemFontOfSize:22.0f]];
 		[self.authorNameLabel setTextColor:[NSColor colorWithWhite:1.0f alpha:0.8f]];
 		[self.authorNameLabel setBackgroundColor:[NSColor clearColor]];
 		[self addSubview:self.authorNameLabel];
 		
-		self.authorProfilePage = [[NSTextField alloc] initWithFrame:NSMakeRect(105, 30, [self bounds].size.width-110, 20)];
+		self.authorProfilePage = [[NSTextField alloc] initWithFrame:NSMakeRect(105, 32, [self bounds].size.width-110, 20)];
 		[self.authorProfilePage setEditable:NO];
 		[self.authorProfilePage setBordered:NO];
-		[self.authorProfilePage setFont:[NSFont fontWithName:@"Courier" size:16.0f]];
+		[self.authorProfilePage setFont:[NSFont systemFontOfSize:14.0f]];
 		[self.authorProfilePage setTextColor:[NSColor colorWithWhite:1 alpha:0.6f]];
 		[self.authorProfilePage setBackgroundColor:[NSColor clearColor]];
 		[self addSubview:self.authorProfilePage];
@@ -77,8 +77,8 @@
 	[self.avatarImageView setFrame:NSMakeRect(20, 20, 70, 70)];
 	if (self.authorProfilePage.stringValue.length > 0) {
 		[self.authorProfilePage setHidden:NO];
-		[self.authorNameLabel setFrame:NSMakeRect(105, 50, [self bounds].size.width-110, 30)];
-		[self.authorProfilePage setFrame:NSMakeRect(105, 30, [self bounds].size.width-110, 20)];
+		[self.authorNameLabel setFrame:NSMakeRect(105, 48, [self bounds].size.width-110, 30)];
+		[self.authorProfilePage setFrame:NSMakeRect(105, 32, [self bounds].size.width-110, 20)];
 	} else {
 		[self.authorProfilePage setHidden:YES];
 		[self.authorNameLabel setFrame:NSMakeRect(105, 40, [self bounds].size.width-110, 30)];

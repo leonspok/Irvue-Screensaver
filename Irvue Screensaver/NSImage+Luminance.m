@@ -7,43 +7,12 @@
 //
 
 #import "NSImage+Luminance.h"
+#import "NSImage+Effects.h"
 #import <objc/runtime.h>
 
 static NSString *const kCalculatedLuminanceKey = @"CALCULATED LUMINANCE";
 
 @implementation NSImage (Luminance) 
-
-- (NSBitmapImageRep *)bitmapImageRepresentation {
-    int width = [self size].width;
-    int height = [self size].height;
-    
-    if(width < 1 || height < 1) {
-        return nil;
-    }
-    
-    NSBitmapImageRep *rep = [[NSBitmapImageRep alloc]
-                             initWithBitmapDataPlanes:NULL
-                             pixelsWide:width
-                             pixelsHigh:height
-                             bitsPerSample:8
-                             samplesPerPixel:4
-                             hasAlpha:YES
-                             isPlanar:NO
-                             colorSpaceName:NSDeviceRGBColorSpace
-                             bytesPerRow:(width * 4)
-                             bitsPerPixel:32];
-    
-    NSGraphicsContext *ctx = [NSGraphicsContext graphicsContextWithBitmapImageRep:rep];
-    [NSGraphicsContext saveGraphicsState];
-    [NSGraphicsContext setCurrentContext:ctx];
-    [self drawAtPoint:NSZeroPoint
-             fromRect:NSZeroRect
-            operation:NSCompositingOperationCopy fraction:1.0];
-    [ctx flushGraphics];
-    [NSGraphicsContext restoreGraphicsState];
-    
-    return rep;
-}
 
 - (CGFloat)luminanceInRect:(NSRect)rect {
 	NSNumber *lum = objc_getAssociatedObject(self, &kCalculatedLuminanceKey);
