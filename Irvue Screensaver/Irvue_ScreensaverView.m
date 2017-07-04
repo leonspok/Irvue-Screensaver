@@ -170,7 +170,11 @@ static NSString *const kSearchQueryKey = @"search_query";
 				}
 			} else {
 				[self saveToCachePhotos:photos fromSource:source];
-				[self getNextImageSuccess:success failure:failure];
+				IVPhoto *nextPhoto = [photos firstObject];
+				if (success) {
+					success(nextPhoto);
+				}
+				[self removeFromCachePhoto:nextPhoto fromSource:source];
 			}
 		} failure:failure];
 	} else {
