@@ -43,6 +43,7 @@ static NSString *const kSearchQueryKey = @"search_query";
 @property (weak) IBOutlet NSTextField *usernameTextField;
 @property (weak) IBOutlet NSButton *searchRadioButton;
 @property (weak) IBOutlet NSTextField *searchQueryTextField;
+@property (weak) IBOutlet NSTextField *appIdTextField;
 
 @property (weak) IBOutlet NSSlider *updateIntervalSlider;
 @property (weak) IBOutlet NSTextField *updateIntervalLabel;
@@ -333,7 +334,7 @@ static NSString *const kSearchQueryKey = @"search_query";
 				newPhotoAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
 				newPhotoAnimation.duration = 1.0f;
 				newPhotoAnimation.fillMode = kCAFillModeForwards;
-				newPhotoAnimation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.7 :0 :0.3 :1.0];
+				newPhotoAnimation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.6 :0 :0.4 :1.0];
 				newPhotoAnimation.removedOnCompletion = NO;
 				[photoView.layer addAnimation:newPhotoAnimation forKey:@"animation"];
 				
@@ -342,7 +343,7 @@ static NSString *const kSearchQueryKey = @"search_query";
 				oldPhotoAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
 				oldPhotoAnimation.duration = 1.0f;
 				oldPhotoAnimation.fillMode = kCAFillModeForwards;
-				oldPhotoAnimation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.7 :0 :0.3 :1.0];
+				oldPhotoAnimation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.6 :0 :0.4 :1.0];
 				oldPhotoAnimation.removedOnCompletion = NO;
 				[self.photoView.layer addAnimation:oldPhotoAnimation forKey:@"animation"];
 				
@@ -407,6 +408,8 @@ static NSString *const kSearchQueryKey = @"search_query";
 	[self.photoView displayIfNeeded];
 }
 
+#pragma mark - Configure Sheet
+
 - (BOOL)hasConfigureSheet
 {
     return YES;
@@ -428,6 +431,7 @@ static NSString *const kSearchQueryKey = @"search_query";
 	self.usernameTextField.stringValue = [self.defaults stringForKey:kUsernameKey]? : @"";
 	self.searchQueryTextField.stringValue = [self.defaults stringForKey:kSearchQueryKey]? : @"";
 	self.updateIntervalSlider.doubleValue = self.updateInterval/60.0;
+    [self.appIdTextField setStringValue:[LPUnsplashAPI sharedInstance].unsplashAppId? : @""];
 	[self updateIntervalChanged:nil];
 	
     return self.configSheet;
@@ -582,6 +586,9 @@ static NSString *const kSearchQueryKey = @"search_query";
 	}
 	[self.defaults synchronize];
 	self.updateInterval = self.updateIntervalSlider.doubleValue;
+    
+    NSString *appId = self.appIdTextField.stringValue;
+    [[LPUnsplashAPI sharedInstance] setUnsplashAppId:appId];
 }
 
 @end

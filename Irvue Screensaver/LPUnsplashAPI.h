@@ -13,6 +13,8 @@
 
 @interface LPUnsplashAPI : NSObject
 
+@property (nonatomic, strong) NSString *unsplashAppId;
+
 + (instancetype)sharedInstance;
 
 #pragma mark Photos

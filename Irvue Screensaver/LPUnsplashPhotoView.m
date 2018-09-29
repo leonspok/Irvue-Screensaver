@@ -18,7 +18,6 @@
 
 @implementation LPUnsplashPhotoView {
 	NSImage *photoImage;
-	CAGradientLayer *gradientLayer;
 }
 
 - (id)initWithPhoto:(IVPhoto *)photo {
@@ -33,6 +32,11 @@
 		[self.photoImageView setImageAlignment:NSImageAlignCenter];
 		[self.photoImageView setImageFrameStyle:NSImageFrameNone];
 		[self addSubview:self.photoImageView];
+        
+        self.bottomGradient = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, self.photoImageView.frame.size.width, 100.0f)];
+        [self.bottomGradient setImageScaling:NSImageScaleAxesIndependently];
+        [self.bottomGradient setImageFrameStyle:NSImageFrameNone];
+        [self addSubview:self.bottomGradient];
 		
 		self.avatarImageView = [[NSImageView alloc] initWithFrame:NSMakeRect(20, 20, 70, 70)];
 		[self.avatarImageView setImageScaling:NSImageScaleProportionallyUpOrDown];
@@ -44,7 +48,7 @@
 		[self.authorNameLabel setEditable:NO];
 		[self.authorNameLabel setBordered:NO];
 		[self.authorNameLabel setFont:[NSFont systemFontOfSize:22.0f]];
-		[self.authorNameLabel setTextColor:[NSColor colorWithWhite:1.0f alpha:0.8f]];
+		[self.authorNameLabel setTextColor:[NSColor colorWithWhite:0.9f alpha:1.0f]];
 		[self.authorNameLabel setBackgroundColor:[NSColor clearColor]];
 		[self addSubview:self.authorNameLabel];
 		
@@ -52,16 +56,18 @@
 		[self.authorProfilePage setEditable:NO];
 		[self.authorProfilePage setBordered:NO];
 		[self.authorProfilePage setFont:[NSFont systemFontOfSize:14.0f]];
-		[self.authorProfilePage setTextColor:[NSColor colorWithWhite:1 alpha:0.6f]];
+		[self.authorProfilePage setTextColor:[NSColor colorWithWhite:0.8f alpha:1.0f]];
 		[self.authorProfilePage setBackgroundColor:[NSColor clearColor]];
 		[self addSubview:self.authorProfilePage];
-		
-		gradientLayer = [CAGradientLayer layer];
-		gradientLayer.colors = @[(id)[NSColor colorWithWhite:0 alpha:0.8f].CGColor,
-								 (id)[NSColor clearColor].CGColor];
-		[gradientLayer setFrame:CGRectMake(0, 0, self.photoImageView.frame.size.width, 200.0f)];
-		[self.photoImageView.layer addSublayer:gradientLayer];
-		
+        
+        NSImage *image = [NSImage imageWithSize:NSMakeSize(1, 120) flipped:NO drawingHandler:^BOOL(NSRect dstRect) {
+            NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithWhite:0 alpha:0.6f]
+                                                                 endingColor:[NSColor colorWithWhite:0 alpha:0]];
+            [gradient drawInRect:dstRect angle:90];
+            return YES;
+        }];
+        [image setResizingMode:NSImageResizingModeStretch];
+        [self.bottomGradient setImage:image];
 	}
 	return self;
 }
@@ -73,7 +79,7 @@
 - (void)layoutSubtreeIfNeeded {
 	[super layoutSubtreeIfNeeded];
 	[self.photoImageView setFrame:[self bounds]];
-	[gradientLayer setFrame:CGRectMake(0, 0, self.photoImageView.frame.size.width, 80.0f)];
+    [self.bottomGradient setFrame:CGRectMake(0, 0, self.photoImageView.frame.size.width, 100.0f)];
 	[self.avatarImageView setFrame:NSMakeRect(20, 20, 70, 70)];
 	if (self.authorProfilePage.stringValue.length > 0) {
 		[self.authorProfilePage setHidden:NO];

@@ -12,6 +12,7 @@
 @interface LPUnsplashPhotoView : NSView
 
 @property (nonatomic, strong) NSImageView *photoImageView;
+@property (nonatomic, strong) NSImageView *bottomGradient;
 @property (nonatomic, strong) NSImageView *avatarImageView;
 @property (nonatomic, strong) NSTextField *authorNameLabel;
 @property (nonatomic, strong) NSTextField *authorProfilePage;

@@ -15,9 +15,13 @@
 #import "TTHTTPRequestSerializer.h"
 #import "UnsplashCredentials.h"
 
+#define REQUESTS_LIMIT 100
+
 static NSString *const kUnsplashAPIBaseURL = @"https://api.unsplash.com";
 
 @interface LPUnsplashAPI()
+@property (nonatomic) NSUInteger requestsCount;
+@property (nonatomic, strong) NSDate *lastCheckDate;
 @end
 
 @implementation LPUnsplashAPI {
@@ -43,9 +47,16 @@ static NSString *const kUnsplashAPIBaseURL = @"https://api.unsplash.com";
 
 - (NSMutableURLRequest *)createRequestWithURL:(NSURL *)url method:(NSString *)method params:(NSDictionary *)params {
 	NSMutableURLRequest *request = [TTHTTPRequestSerializer requestWithMethod:method url:url params:params];
-	[request setValue:[NSString stringWithFormat:@"Client-ID %@", UNSPLASH_APP_ID] forHTTPHeaderField:@"Authorization"];
+	[request setValue:[NSString stringWithFormat:@"Client-ID %@", [self unsplashAppIdToUse]] forHTTPHeaderField:@"Authorization"];
 	[request setValue:@"v1" forHTTPHeaderField:@"Accept-Version"];
 	return request;
+}
+
+- (NSString *)unsplashAppIdToUse {
+    if (self.unsplashAppId.length == 0) {
+        return UNSPLASH_APP_ID;
+    }
+    return self.unsplashAppId;
 }
 
 #pragma mark Photos
@@ -55,6 +66,21 @@ static NSString *const kUnsplashAPIBaseURL = @"https://api.unsplash.com";
 - (void)getRandomPhotoWithParams:(NSDictionary *)params
 						 success:(void (^)(IVPhoto *photo))success
 						 failure:(void (^)(NSError *error))failure {
+    
+    if (self.lastCheckDate && [[NSDate date] timeIntervalSinceDate:self.lastCheckDate] >= 3600) {
+        self.requestsCount = 0;
+    }
+    
+    if (self.requestsCount >= REQUESTS_LIMIT) {
+        if (failure) {
+            failure([NSError errorWithDomain:NSStringFromClass(self.class) code:3 userInfo:nil]);
+        }
+        return;
+    }
+    
+    self.requestsCount += 1;
+    self.lastCheckDate = [NSDate date];
+    
 	NSMutableDictionary *fullParams = [params mutableCopy];
 	[fullParams addEntriesFromDictionary:@{@"orientation": @"landscape",
 										   @"count": @1}];
@@ -128,6 +154,20 @@ static NSString *const kUnsplashAPIBaseURL = @"https://api.unsplash.com";
 		}
 		return;
 	}
+    
+    if (self.lastCheckDate && [[NSDate date] timeIntervalSinceDate:self.lastCheckDate] >= 3600) {
+        self.requestsCount = 0;
+    }
+    
+    if (self.requestsCount >= REQUESTS_LIMIT) {
+        if (failure) {
+            failure([NSError errorWithDomain:NSStringFromClass(self.class) code:3 userInfo:nil]);
+        }
+        return;
+    }
+    
+    self.requestsCount += 1;
+    self.lastCheckDate = [NSDate date];
 	
 	NSMutableDictionary *fullParams = [params mutableCopy];
 	[fullParams addEntriesFromDictionary:@{@"orientation": @"landscape",

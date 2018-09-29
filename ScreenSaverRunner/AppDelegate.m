@@ -23,7 +23,7 @@
 //	[self.screenSaver setSource:PhotosSourceSearch];
 //	[self.screenSaver.defaults setObject:@"city" forKey:@"search_query"];
 //	[self.screenSaver.defaults synchronize];
-//	[self.screenSaver setUpdateInterval:5.0f];
+    [self.screenSaver setUpdateInterval:5.0f];
 	[self.window.contentView addSubview:self.screenSaver];
 }
 
