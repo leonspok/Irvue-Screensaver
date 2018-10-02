@@ -134,7 +134,6 @@
 		E3E940211E3E495A00094B83 /* TTOfflineChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTOfflineChecker.m; sourceTree = "<group>"; };
 		E3E940251E3E49BA00094B83 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		E3E940261E3E49BA00094B83 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		E3F6104B1DF97313009A0CF9 /* UnsplashCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnsplashCredentials.h; sourceTree = "<group>"; };
 		E3FBA5471DEEE9CD00CF2932 /* Irvue Screensaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Irvue Screensaver.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FBA54A1DEEE9CD00CF2932 /* Irvue_ScreensaverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Irvue_ScreensaverView.h; sourceTree = "<group>"; };
 		E3FBA54C1DEEE9CD00CF2932 /* Irvue_ScreensaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Irvue_ScreensaverView.m; sourceTree = "<group>"; };
@@ -254,7 +253,6 @@
 			children = (
 				E37964B01DEEEC9E00C27AC7 /* Data */,
 				E37964EF1DEEED3F00C27AC7 /* Commons */,
-				E3F6104B1DF97313009A0CF9 /* UnsplashCredentials.h */,
 				E379651E1DEF098900C27AC7 /* LPUnsplashPhotoView.h */,
 				E379651F1DEF098900C27AC7 /* LPUnsplashPhotoView.m */,
 				E37964B11DEEECAE00C27AC7 /* LPUnsplashAPI.h */,

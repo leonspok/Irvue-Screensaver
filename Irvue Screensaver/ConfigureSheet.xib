@@ -27,8 +27,8 @@
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="116" width="509" height="483"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
-            <view key="contentView" id="uH8-h8-Dbe">
-                <rect key="frame" x="0.0" y="0.0" width="509" height="472"/>
+            <view key="contentView" misplaced="YES" id="uH8-h8-Dbe">
+                <rect key="frame" x="0.0" y="0.0" width="509" height="483"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box title="Photos from:" translatesAutoresizingMaskIntoConstraints="NO" id="2Ei-w5-x9N">
@@ -172,7 +172,7 @@
                             <action selector="close:" target="-2" id="6a6-uD-qfq"/>
                         </connections>
                     </button>
-                    <box title="Unsplash App ID:" translatesAutoresizingMaskIntoConstraints="NO" id="snb-Od-c6L">
+                    <box title="Unsplash Access Key:" translatesAutoresizingMaskIntoConstraints="NO" id="snb-Od-c6L">
                         <rect key="frame" x="18" y="53" width="475" height="101"/>
                         <view key="contentView" id="RU3-7e-bNN">
                             <rect key="frame" x="3" y="3" width="469" height="83"/>

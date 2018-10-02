@@ -13,7 +13,6 @@
 #import "IVUser.h"
 #import "NSDictionary+NSURL.h"
 #import "TTHTTPRequestSerializer.h"
-#import "UnsplashCredentials.h"
 
 #define REQUESTS_LIMIT 100
 
@@ -47,16 +46,9 @@ static NSString *const kUnsplashAPIBaseURL = @"https://api.unsplash.com";
 
 - (NSMutableURLRequest *)createRequestWithURL:(NSURL *)url method:(NSString *)method params:(NSDictionary *)params {
 	NSMutableURLRequest *request = [TTHTTPRequestSerializer requestWithMethod:method url:url params:params];
-	[request setValue:[NSString stringWithFormat:@"Client-ID %@", [self unsplashAppIdToUse]] forHTTPHeaderField:@"Authorization"];
+	[request setValue:[NSString stringWithFormat:@"Client-ID %@", [self unsplashAppId]] forHTTPHeaderField:@"Authorization"];
 	[request setValue:@"v1" forHTTPHeaderField:@"Accept-Version"];
 	return request;
-}
-
-- (NSString *)unsplashAppIdToUse {
-    if (self.unsplashAppId.length == 0) {
-        return UNSPLASH_APP_ID;
-    }
-    return self.unsplashAppId;
 }
 
 #pragma mark Photos

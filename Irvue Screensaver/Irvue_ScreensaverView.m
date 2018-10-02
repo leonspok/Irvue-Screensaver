@@ -31,6 +31,7 @@ static NSString *const kCollectionURLKey = @"collection_url";
 static NSString *const kCollectionUIDKey = @"collection_uid";
 static NSString *const kUsernameKey = @"username";
 static NSString *const kSearchQueryKey = @"search_query";
+static NSString *const kAppIdKey = @"app_id";
 
 @interface Irvue_ScreensaverView()
 @property (nonatomic, strong) NSView *containerView;
@@ -58,12 +59,13 @@ static NSString *const kSearchQueryKey = @"search_query";
 	SwitchDirection previousDirection;
 }
 
-- (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
-{
+- (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview {
     self = [super initWithFrame:frame isPreview:isPreview];
     if (self) {
 		[[LPImageDownloadManager defaultManager] clearOldCache];
 		self.defaults = [ScreenSaverDefaults defaultsForModuleWithName:@"com.leonspok.osx.Irvue-Screensaver.defaults"];
+        
+        [[LPUnsplashAPI sharedInstance] setUnsplashAppId:[self.defaults objectForKey:kAppIdKey]];
 		
 		self.containerView = [[NSView alloc] initWithFrame:[self bounds]];
 		[self.containerView setWantsLayer:YES];
@@ -588,6 +590,7 @@ static NSString *const kSearchQueryKey = @"search_query";
 	self.updateInterval = self.updateIntervalSlider.doubleValue;
     
     NSString *appId = self.appIdTextField.stringValue;
+    [self.defaults setObject:appId forKey:kAppIdKey];
     [[LPUnsplashAPI sharedInstance] setUnsplashAppId:appId];
 }
 
